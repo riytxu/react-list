@@ -1,0 +1,16 @@
+:root {
+  --main-color: #ffcf00;
+  --extra-a-color: #ffcf00;
+  --extra-b-color: #ffa500;
+  --main-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 1rem Verdana, Arial, sans-serif;
+}

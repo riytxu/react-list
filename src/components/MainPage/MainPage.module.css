@@ -1,0 +1,9 @@
+.mainWrapper {
+  max-width: 1500px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 auto;
+}
+.contentWrapper {
+  margin-top: 50px;
+}

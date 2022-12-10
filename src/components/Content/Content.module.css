@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  background-color: var(--main-color);
+  border-radius: var(--main-radius);
+  padding: 20px;
+}
+.item {
+  border-radius: var(--main-radius);
+  background-color: var(--extra-b-color);
+  padding: 20px;
+}
