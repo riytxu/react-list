@@ -8,7 +8,22 @@
   padding: 20px;
 }
 .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   border-radius: var(--main-radius);
   background-color: var(--extra-b-color);
   padding: 20px;
+}
+.fullName {
+  display: flex;
+  gap: 5px;
+}
+.iconsWrapper {
+  display: flex;
+  gap: 25px;
+  font-size: 25px;
+}
+.icon {
+  cursor: pointer;
 }

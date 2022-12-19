@@ -1,5 +1,12 @@
 import cn from "classnames";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+
+import { useDispatch } from "react-redux";
+
+import { showModal } from "../../reducers/modalSlice";
+
 import styles from "./Content.module.css";
 
 const data = [
@@ -16,10 +23,25 @@ const data = [
 ];
 
 const ContentItem = ({ name, surname }) => {
+  const dispatch = useDispatch();
+
   return (
-    <div className={cn(styles.item, styles.itemWrapper)}>
-      <div>
-        {name} {surname}
+    <div className={styles.item}>
+      <div className={styles.fullName}>
+        <span>{name}</span>
+        <span>{surname}</span>
+      </div>
+      <div className={styles.iconsWrapper}>
+        <FontAwesomeIcon
+          onClick={() => dispatch(showModal())}
+          className={styles.icon}
+          icon={faPen}
+        />
+        <FontAwesomeIcon
+          onClick={() => dispatch(showModal())}
+          className={styles.icon}
+          icon={faTrashCan}
+        />
       </div>
     </div>
   );
