@@ -1,30 +1,14 @@
-import cn from "classnames";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { showModal } from "../../reducers/modalSlice";
 
 import styles from "./Content.module.css";
 
-const data = [
-  {
-    id: 1,
-    name: "Иван",
-    surname: "Иванов",
-  },
-  {
-    id: 2,
-    name: "Сергей",
-    surname: "Сергеев",
-  },
-];
-
 const ContentItem = ({ name, surname }) => {
   const dispatch = useDispatch();
-
   return (
     <div className={styles.item}>
       <div className={styles.fullName}>
@@ -48,9 +32,10 @@ const ContentItem = ({ name, surname }) => {
 };
 
 export const Content = () => {
+  const worker = useSelector((state) => state.worker.worker);
   return (
     <div className={styles.content}>
-      {data.map((item) => {
+      {worker.map((item) => {
         return (
           <ContentItem key={item.id} name={item.name} surname={item.surname} />
         );
