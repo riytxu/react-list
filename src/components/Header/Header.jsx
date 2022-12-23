@@ -14,7 +14,7 @@ export const Header = () => {
     >
       <button
         className={styles.button}
-        onClick={() => dispatch(showModal("addWorker"))}
+        onClick={() => dispatch(showModal(["addWorker"]))}
       >
         Добавить работника
       </button>

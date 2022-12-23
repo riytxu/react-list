@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { hideModal } from "../../reducers/modalSlice";
 
 import { ModalAddWorker } from "./ModalAddWorker";
-import { ModalAddTask } from "./ModalAddTask";
+import { ModalRemoveWorker } from "./ModalRemoveWorker";
 
 import styles from "./Modal.module.css";
 
@@ -12,10 +12,10 @@ export const Modal = () => {
   const statusModal = useSelector((state) => state.modal.show);
   const childrenModal = useSelector((state) => state.modal.children);
   const switchModal = () => {
-    if (childrenModal === "addWorker") {
+    if (childrenModal[0] === "addWorker") {
       return <ModalAddWorker />;
-    } else if (childrenModal === "addTask") {
-      return <ModalAddTask />;
+    } else if (childrenModal[0] === "removeWorker") {
+      return <ModalRemoveWorker data={childrenModal[1]} />;
     } else {
       return null;
     }

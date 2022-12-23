@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { showModal } from "../../reducers/modalSlice";
 
-import { deleteWorker } from "../../reducers/workerSlice";
-
 import styles from "./Content.module.css";
 
 const ContentItem = ({ id, name, surname }) => {
@@ -24,7 +22,9 @@ const ContentItem = ({ id, name, surname }) => {
           icon={faPen}
         />
         <FontAwesomeIcon
-          onClick={() => dispatch(deleteWorker(id))}
+          onClick={() =>
+            dispatch(showModal(["removeWorker", [id, name, surname]]))
+          }
           className={styles.icon}
           icon={faTrashCan}
         />
