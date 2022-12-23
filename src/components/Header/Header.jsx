@@ -18,12 +18,6 @@ export const Header = () => {
       >
         Добавить работника
       </button>
-      {/* <button
-        className={styles.button}
-        onClick={() => dispatch(showModal("addTask"))}
-      >
-        Добавить задачу
-      </button> */}
     </header>
   );
 };

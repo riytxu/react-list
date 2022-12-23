@@ -26,8 +26,22 @@ export const workerSlice = createSlice({
         ],
       };
     },
+    editWorker: (state, actions) => {
+      return {
+        ...state,
+        worker: [
+          ...state.worker.map((item) => {
+            if (item.id === actions.payload.id) {
+              return actions.payload;
+            } else {
+              return item;
+            }
+          }),
+        ],
+      };
+    },
   },
 });
 
-export const { addWorker, deleteWorker } = workerSlice.actions;
+export const { addWorker, deleteWorker, editWorker } = workerSlice.actions;
 export default workerSlice.reducer;

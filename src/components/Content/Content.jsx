@@ -17,7 +17,9 @@ const ContentItem = ({ id, name, surname }) => {
       </div>
       <div className={styles.iconsWrapper}>
         <FontAwesomeIcon
-          onClick={() => dispatch(showModal())}
+          onClick={() =>
+            dispatch(showModal(["editWorker", [id, name, surname]]))
+          }
           className={styles.icon}
           icon={faPen}
         />

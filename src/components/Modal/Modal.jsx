@@ -4,6 +4,7 @@ import { hideModal } from "../../reducers/modalSlice";
 
 import { ModalAddWorker } from "./ModalAddWorker";
 import { ModalRemoveWorker } from "./ModalRemoveWorker";
+import { ModalEditWorker } from "./ModalEditWorker";
 
 import styles from "./Modal.module.css";
 
@@ -16,6 +17,8 @@ export const Modal = () => {
       return <ModalAddWorker />;
     } else if (childrenModal[0] === "removeWorker") {
       return <ModalRemoveWorker data={childrenModal[1]} />;
+    } else if (childrenModal[0] === "editWorker") {
+      return <ModalEditWorker data={childrenModal[1]} />;
     } else {
       return null;
     }
@@ -23,10 +26,10 @@ export const Modal = () => {
   if (!statusModal) return null;
 
   return (
-    <div className={styles.modal} onClick={() => dispatch(hideModal())}>
+    <div className={styles.modal} onMouseDown={() => dispatch(hideModal())}>
       <div
         className={styles.modal__content}
-        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
       >
         {switchModal()}
       </div>

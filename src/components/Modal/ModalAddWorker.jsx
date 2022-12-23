@@ -40,8 +40,8 @@ export const ModalAddWorker = () => {
         </label>
       </div>
       <div className="modal__footer">
-        <button onClick={() => dispatch(hideModal())}>Закрыть</button>
         <button onClick={() => handlerAddButton()}>Добавить</button>
+        <button onClick={() => dispatch(hideModal())}>Отмена</button>
       </div>
     </>
   );
