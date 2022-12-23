@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { showModal } from "../../reducers/modalSlice";
 
+import { deleteWorker } from "../../reducers/workerSlice";
+
 import styles from "./Content.module.css";
 
-const ContentItem = ({ name, surname }) => {
+const ContentItem = ({ id, name, surname }) => {
   const dispatch = useDispatch();
   return (
     <div className={styles.item}>
@@ -22,7 +24,7 @@ const ContentItem = ({ name, surname }) => {
           icon={faPen}
         />
         <FontAwesomeIcon
-          onClick={() => dispatch(showModal())}
+          onClick={() => dispatch(deleteWorker(id))}
           className={styles.icon}
           icon={faTrashCan}
         />
@@ -33,11 +35,23 @@ const ContentItem = ({ name, surname }) => {
 
 export const Content = () => {
   const worker = useSelector((state) => state.worker.worker);
+  if (!worker.length) {
+    return (
+      <div className={styles.content}>
+        <h3>Добавьте работника</h3>
+      </div>
+    );
+  }
   return (
     <div className={styles.content}>
       {worker.map((item) => {
         return (
-          <ContentItem key={item.id} name={item.name} surname={item.surname} />
+          <ContentItem
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            surname={item.surname}
+          />
         );
       })}
     </div>

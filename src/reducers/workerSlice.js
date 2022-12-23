@@ -10,10 +10,24 @@ export const workerSlice = createSlice({
   },
 
   reducers: {
-    //нужно будет вписать редукторы
+    addWorker: (state, actions) => {
+      return {
+        ...state,
+        worker: [...state.worker, actions.payload],
+      };
+    },
+    deleteWorker: (state, actions) => {
+      return {
+        ...state,
+        worker: [
+          ...state.worker.filter((item) => {
+            return item.id !== actions.payload;
+          }),
+        ],
+      };
+    },
   },
 });
 
-// export const { редукторы } = counterSlice.actions
-
+export const { addWorker, deleteWorker } = workerSlice.actions;
 export default workerSlice.reducer;

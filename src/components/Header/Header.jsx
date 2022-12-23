@@ -12,12 +12,18 @@ export const Header = () => {
     <header
       className={cn(styles.header, styles.headerWrapper, styles.header_green)}
     >
-      <button className={styles.button} onClick={() => dispatch(showModal())}>
+      <button
+        className={styles.button}
+        onClick={() => dispatch(showModal("addWorker"))}
+      >
         Добавить работника
       </button>
-      <button className={styles.button} onClick={() => dispatch(showModal())}>
+      {/* <button
+        className={styles.button}
+        onClick={() => dispatch(showModal("addTask"))}
+      >
         Добавить задачу
-      </button>
+      </button> */}
     </header>
   );
 };

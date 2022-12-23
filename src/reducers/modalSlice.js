@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { createSlice } from "@reduxjs/toolkit";
 
 export const modalSlice = createSlice({
@@ -5,11 +6,13 @@ export const modalSlice = createSlice({
 
   initialState: {
     show: false,
+    children: null,
   },
 
   reducers: {
-    showModal: (state) => {
+    showModal: (state, actions) => {
       state.show = true;
+      state.children = actions.payload;
     },
 
     hideModal: (state) => {
