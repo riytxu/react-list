@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { showModal } from "../../reducers/modalSlice";
 
-import styles from "./Content.module.css";
+import styles from "./ContentWorkers.module.css";
 
-const ContentItem = ({ id, name, surname }) => {
+const ContentWorkersItem = ({ id, name, surname }) => {
   const dispatch = useDispatch();
   return (
     <div className={styles.item}>
@@ -35,7 +35,7 @@ const ContentItem = ({ id, name, surname }) => {
   );
 };
 
-export const Content = () => {
+export const ContentWorkers = () => {
   const worker = useSelector((state) => state.worker.worker);
   if (!worker.length) {
     return (
@@ -48,7 +48,7 @@ export const Content = () => {
     <div className={styles.content}>
       {worker.map((item) => {
         return (
-          <ContentItem
+          <ContentWorkersItem
             key={item.id}
             id={item.id}
             name={item.name}
