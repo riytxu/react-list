@@ -14,6 +14,7 @@ export const ModalAddWorker = () => {
       id: Date.now() + Math.random(),
       name: name,
       surname: surname,
+      tasks: [],
     };
     dispatch(addWorker(fullname));
     dispatch(hideModal());

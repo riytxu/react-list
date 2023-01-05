@@ -5,6 +5,7 @@ import { hideModal } from "../../reducers/modalSlice";
 import { ModalAddWorker } from "./ModalAddWorker";
 import { ModalRemoveWorker } from "./ModalRemoveWorker";
 import { ModalEditWorker } from "./ModalEditWorker";
+import { ModalAddTask } from "./ModalAddTask";
 
 import styles from "./Modal.module.css";
 
@@ -19,6 +20,8 @@ export const Modal = () => {
       return <ModalRemoveWorker data={childrenModal[1]} />;
     } else if (childrenModal[0] === "editWorker") {
       return <ModalEditWorker data={childrenModal[1]} />;
+    } else if (childrenModal[0] === "addTask") {
+      return <ModalAddTask />;
     } else {
       return null;
     }

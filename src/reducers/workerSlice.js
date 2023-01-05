@@ -32,7 +32,13 @@ export const workerSlice = createSlice({
         worker: [
           ...state.worker.map((item) => {
             if (item.id === actions.payload.id) {
-              return actions.payload;
+              const result = {
+                id: actions.payload.id,
+                name: actions.payload.name,
+                surname: actions.payload.surname,
+                tasks: item.tasks,
+              };
+              return result;
             } else {
               return item;
             }
@@ -40,8 +46,28 @@ export const workerSlice = createSlice({
         ],
       };
     },
+    addTask: (state, actions) => {
+      const { task, id } = actions.payload;
+      return {
+        ...state,
+        worker: [
+          ...state.worker.map((item) => {
+            if (item.id == id) {
+              //TODO проблема со строгим равенством
+              const result = {
+                ...item,
+                tasks: [...item.tasks, task],
+              };
+              return result;
+            }
+            return item;
+          }),
+        ],
+      };
+    },
   },
 });
 
-export const { addWorker, deleteWorker, editWorker } = workerSlice.actions;
+export const { addWorker, deleteWorker, editWorker, addTask } =
+  workerSlice.actions;
 export default workerSlice.reducer;
