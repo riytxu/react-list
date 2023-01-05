@@ -3,13 +3,35 @@ const workersData = [
     id: 1,
     name: "Иван",
     surname: "Иванов",
-    tasks: ["test1", "test2"],
+    tasks: [
+      {
+        id: 1,
+        title: "task1",
+        isDone: false,
+      },
+      {
+        id: 2,
+        title: "task2",
+        isDone: false,
+      },
+    ],
   },
   {
     id: 2,
     name: "Сергей",
     surname: "Сергеев",
-    tasks: ["test3", "test4"],
+    tasks: [
+      {
+        id: 1,
+        title: "task3",
+        isDone: false,
+      },
+      {
+        id: 2,
+        title: "task4",
+        isDone: false,
+      },
+    ],
   },
 ];
 

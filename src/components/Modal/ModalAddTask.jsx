@@ -12,7 +12,11 @@ export const ModalAddTask = () => {
   const handlerClick = () => {
     dispatch(
       addTask({
-        task: task,
+        task: {
+          id: Date.now() + Math.random(),
+          title: task,
+          isDone: false,
+        },
         id: selectWorker,
       })
     );

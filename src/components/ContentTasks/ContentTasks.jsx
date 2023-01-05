@@ -2,23 +2,28 @@ import { useSelector } from "react-redux";
 
 import styles from "./ContentTasks.module.css";
 
-const ContentTasksItem = ({ id, name, surname, tasks }) => {
+const ContentTasksItem = ({ name, surname, tasks }) => {
   return (
     <div className={styles.item}>
       <div className="fullName">
         {name} {surname}
       </div>
       <div className={styles.tasksWrapper}>
-        {tasks.map((item, index) => {
-          return <TaskItem key={index} task={item} />;
+        {tasks.map((item) => {
+          const { id, title } = item;
+          return <TaskItem key={id} id={id} task={title} />;
         })}
       </div>
     </div>
   );
 };
 
-const TaskItem = ({ task }) => {
-  return <div className={styles.taskItem}>{task}</div>;
+const TaskItem = ({ id, task }) => {
+  return (
+    <div className={styles.taskItem} data-id={id}>
+      {task}
+    </div>
+  );
 };
 
 export const ContentTasks = () => {
@@ -36,7 +41,6 @@ export const ContentTasks = () => {
         return (
           <ContentTasksItem
             key={item.id}
-            id={item.id}
             name={item.name}
             surname={item.surname}
             tasks={item.tasks}

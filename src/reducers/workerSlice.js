@@ -27,16 +27,16 @@ export const workerSlice = createSlice({
       };
     },
     editWorker: (state, actions) => {
+      const { id, name, surname } = actions.payload;
       return {
         ...state,
         worker: [
           ...state.worker.map((item) => {
-            if (item.id === actions.payload.id) {
+            if (item.id === id) {
               const result = {
-                id: actions.payload.id,
-                name: actions.payload.name,
-                surname: actions.payload.surname,
-                tasks: item.tasks,
+                ...item,
+                name: name,
+                surname: surname,
               };
               return result;
             } else {
