@@ -19,9 +19,22 @@
 .tasksWrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   margin-left: 20px;
 }
+.taskItem {
+  display: flex;
+}
 .taskItem::before {
-  content: "***";
+  content: "-";
+  margin-right: 10px;
+}
+.iconsWrapper {
+  display: flex;
+  gap: 20px;
+  font-size: 25px;
+  margin-left: auto;
+}
+.icon {
+  cursor: pointer;
 }

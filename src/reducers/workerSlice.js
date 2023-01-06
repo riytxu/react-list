@@ -65,9 +65,66 @@ export const workerSlice = createSlice({
         ],
       };
     },
+    statusTask: (state, actions) => {
+      const { idWorker, idTask } = actions.payload;
+      return {
+        ...state,
+        worker: [
+          ...state.worker.map((item) => {
+            if (item.id === idWorker) {
+              const result = {
+                ...item,
+                tasks: [
+                  ...item.tasks.map((item) => {
+                    if (item.id === idTask) {
+                      const result = {
+                        ...item,
+                        isDone: !item.isDone,
+                      };
+                      return result;
+                    }
+                    return item;
+                  }),
+                ],
+              };
+              return result;
+            }
+            return item;
+          }),
+        ],
+      };
+    },
+    delTask: (state, actions) => {
+      const { idWorker, idTask } = actions.payload;
+      return {
+        ...state,
+        worker: [
+          ...state.worker.map((item) => {
+            if (item.id === idWorker) {
+              const result = {
+                ...item,
+                tasks: [
+                  ...item.tasks.filter((item) => {
+                    return item.id !== idTask;
+                  }),
+                ],
+              };
+              return result;
+            }
+            return item;
+          }),
+        ],
+      };
+    },
   },
 });
 
-export const { addWorker, deleteWorker, editWorker, addTask } =
-  workerSlice.actions;
+export const {
+  addWorker,
+  deleteWorker,
+  editWorker,
+  addTask,
+  statusTask,
+  delTask,
+} = workerSlice.actions;
 export default workerSlice.reducer;
