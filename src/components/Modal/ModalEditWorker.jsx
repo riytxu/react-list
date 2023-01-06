@@ -6,7 +6,7 @@ import { editWorker } from "../../reducers/workerSlice";
 
 export const ModalEditWorker = ({ data }) => {
   const dispatch = useDispatch();
-  const [id, name, surname] = data;
+  const { id, name, surname } = data;
   const [editName, setEditName] = useState(name);
   const [editSurname, setEditSurname] = useState(surname);
   const handlerClick = () => {

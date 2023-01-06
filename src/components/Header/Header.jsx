@@ -26,7 +26,13 @@ export const Header = () => {
           element={
             <button
               className={styles.button}
-              onClick={() => dispatch(showModal(["addWorker"]))}
+              onClick={() =>
+                dispatch(
+                  showModal({
+                    title: "addWorker",
+                  })
+                )
+              }
             >
               Добавить работника
             </button>
@@ -37,7 +43,13 @@ export const Header = () => {
           element={
             <button
               className={styles.button}
-              onClick={() => dispatch(showModal(["addTask"]))}
+              onClick={() =>
+                dispatch(
+                  showModal({
+                    title: "addTask",
+                  })
+                )
+              }
             >
               Добавить задачу
             </button>

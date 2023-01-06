@@ -17,7 +17,7 @@ export const ModalAddTask = () => {
           title: task,
           isDone: false,
         },
-        id: selectWorker,
+        id: +selectWorker,
       })
     );
     dispatch(hideModal());

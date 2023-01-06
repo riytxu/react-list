@@ -5,7 +5,7 @@ import { hideModal } from "../../reducers/modalSlice";
 import { deleteWorker } from "../../reducers/workerSlice";
 
 export const ModalRemoveWorker = ({ data }) => {
-  const [id, name, surname] = data;
+  const { id, name, surname } = data;
   const dispatch = useDispatch();
   const handlerClick = () => {
     dispatch(deleteWorker(id));

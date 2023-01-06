@@ -18,14 +18,32 @@ const ContentWorkersItem = ({ id, name, surname }) => {
       <div className={styles.iconsWrapper}>
         <FontAwesomeIcon
           onClick={() =>
-            dispatch(showModal(["editWorker", [id, name, surname]]))
+            dispatch(
+              showModal({
+                title: "editWorker",
+                data: {
+                  id,
+                  name,
+                  surname,
+                },
+              })
+            )
           }
           className={styles.icon}
           icon={faPen}
         />
         <FontAwesomeIcon
           onClick={() =>
-            dispatch(showModal(["removeWorker", [id, name, surname]]))
+            dispatch(
+              showModal({
+                title: "removeWorker",
+                data: {
+                  id,
+                  name,
+                  surname,
+                },
+              })
+            )
           }
           className={styles.icon}
           icon={faTrashCan}

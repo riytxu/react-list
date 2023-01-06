@@ -14,13 +14,13 @@ export const Modal = () => {
   const statusModal = useSelector((state) => state.modal.show);
   const childrenModal = useSelector((state) => state.modal.children);
   const switchModal = () => {
-    if (childrenModal[0] === "addWorker") {
+    if (childrenModal?.title === "addWorker") {
       return <ModalAddWorker />;
-    } else if (childrenModal[0] === "removeWorker") {
-      return <ModalRemoveWorker data={childrenModal[1]} />;
-    } else if (childrenModal[0] === "editWorker") {
-      return <ModalEditWorker data={childrenModal[1]} />;
-    } else if (childrenModal[0] === "addTask") {
+    } else if (childrenModal?.title === "removeWorker") {
+      return <ModalRemoveWorker data={childrenModal?.data} />;
+    } else if (childrenModal?.title === "editWorker") {
+      return <ModalEditWorker data={childrenModal?.data} />;
+    } else if (childrenModal?.title === "addTask") {
       return <ModalAddTask />;
     } else {
       return null;

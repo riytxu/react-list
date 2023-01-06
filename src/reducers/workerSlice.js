@@ -52,8 +52,7 @@ export const workerSlice = createSlice({
         ...state,
         worker: [
           ...state.worker.map((item) => {
-            if (item.id == id) {
-              //TODO проблема со строгим равенством
+            if (item.id === id) {
               const result = {
                 ...item,
                 tasks: [...item.tasks, task],
