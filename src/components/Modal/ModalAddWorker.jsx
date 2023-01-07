@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { Button } from "../Button/Button";
 import { addWorker } from "../../reducers/workerSlice";
 import { Validate } from "../../Validate";
 
@@ -51,8 +52,20 @@ export const ModalAddWorker = () => {
       </div>
       {error && <div>{error}</div>}
       <div className="modal__footer">
-        <button onClick={() => handlerAddButton()}>Добавить</button>
-        <button onClick={() => dispatch(hideModal())}>Отмена</button>
+        <Button
+          Size={"Small"}
+          Type={"Success"}
+          onClick={() => handlerAddButton()}
+        >
+          Добавить
+        </Button>
+        <Button
+          Size={"Small"}
+          Type={"Danger"}
+          onClick={() => dispatch(hideModal())}
+        >
+          Отмена
+        </Button>
       </div>
     </>
   );

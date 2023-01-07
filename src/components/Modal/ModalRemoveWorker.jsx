@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 
+import { Button } from "../Button/Button";
 import { hideModal } from "../../reducers/modalSlice";
 
 import { deleteWorker } from "../../reducers/workerSlice";
@@ -18,8 +19,16 @@ export const ModalRemoveWorker = ({ data }) => {
         {name} {surname}
       </div>
       <div className="modal__footer">
-        <button onClick={handlerClick}>Удалить</button>
-        <button onClick={() => dispatch(hideModal())}>Отмена</button>
+        <Button Size={"Small"} Type={"Success"} onClick={handlerClick}>
+          Удалить
+        </Button>
+        <Button
+          Size={"Small"}
+          Type={"Danger"}
+          onClick={() => dispatch(hideModal())}
+        >
+          Отмена
+        </Button>
       </div>
     </>
   );

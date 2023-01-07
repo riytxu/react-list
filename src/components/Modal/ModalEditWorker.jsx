@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { Button } from "../Button/Button";
 import { hideModal } from "../../reducers/modalSlice";
 import { editWorker } from "../../reducers/workerSlice";
 
@@ -51,8 +52,16 @@ export const ModalEditWorker = ({ data }) => {
       </div>
       {error && <div>{error}</div>}
       <div className="modal__footer">
-        <button onClick={handlerClick}>Изменить</button>
-        <button onClick={() => dispatch(hideModal())}>Отмена</button>
+        <Button Size={"Small"} Type={"Success"} onClick={handlerClick}>
+          Изменить
+        </Button>
+        <Button
+          Size={"Small"}
+          Type={"Danger"}
+          onClick={() => dispatch(hideModal())}
+        >
+          Отмена
+        </Button>
       </div>
     </>
   );

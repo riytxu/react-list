@@ -1,31 +1,45 @@
 import cn from "classnames";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
 
+import { Button } from "../Button/Button";
 import { showModal } from "../../reducers/modalSlice";
 
 import styles from "./Header.module.css";
 
 export const Header = () => {
+  const location = useLocation().pathname;
   const dispatch = useDispatch();
   return (
     <header
       className={cn(styles.header, styles.headerWrapper, styles.header_green)}
     >
       <Link to="workers">
-        <button className={styles.button}>Работники</button>
+        <Button
+          Size={"Large"}
+          Type={location === "/workers" ? "Disabled" : "Secondary"}
+        >
+          Работники
+        </Button>
       </Link>
       <Link to="tasks">
-        <button className={styles.button}>Задачи</button>
+        <Button
+          Size={"Large"}
+          Type={location === "/tasks" ? "Disabled" : "Secondary"}
+        >
+          Задачи
+        </Button>
       </Link>
 
       <Routes>
         <Route
           path="workers"
           element={
-            <button
-              className={styles.button}
+            <Button
+              Size={"Large"}
+              Type={"Secondary"}
               onClick={() =>
                 dispatch(
                   showModal({
@@ -35,14 +49,15 @@ export const Header = () => {
               }
             >
               Добавить работника
-            </button>
+            </Button>
           }
         />
         <Route
           path="tasks"
           element={
-            <button
-              className={styles.button}
+            <Button
+              Size={"Large"}
+              Type={"Secondary"}
               onClick={() =>
                 dispatch(
                   showModal({
@@ -52,7 +67,7 @@ export const Header = () => {
               }
             >
               Добавить задачу
-            </button>
+            </Button>
           }
         />
       </Routes>

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { addTask } from "../../reducers/workerSlice";
 import { hideModal } from "../../reducers/modalSlice";
-
+import { Button } from "../Button/Button";
 import { Validate } from "../../Validate";
 
 export const ModalAddTask = () => {
@@ -62,8 +62,16 @@ export const ModalAddTask = () => {
       </div>
       {error && <div>{error}</div>}
       <div className="modal__footer">
-        <button onClick={handlerClick}>Добавить</button>
-        <button onClick={() => dispatch(hideModal())}>Отмена</button>
+        <Button Size={"Small"} Type={"Success"} onClick={handlerClick}>
+          Добавить
+        </Button>
+        <Button
+          Size={"Small"}
+          Type={"Danger"}
+          onClick={() => dispatch(hideModal())}
+        >
+          Отмена
+        </Button>
       </div>
     </>
   );
