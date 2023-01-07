@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
 import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import cn from "classnames";
 
 import { statusTask } from "../../reducers/workerSlice";
 import { delTask } from "../../reducers/workerSlice";
@@ -27,14 +27,19 @@ const ContentTasksItem = ({ idWorker, name, surname, tasks }) => {
 };
 
 const TaskItem = ({ idWorker, idTask, task }) => {
+  const workerArr = useSelector((state) => state.worker.worker);
+  const worker = workerArr.find((item) => item.id === idWorker);
+  const workerTask = worker.tasks.find((item) => item.id === idTask);
   const dispatch = useDispatch();
   return (
     <div className={styles.taskItem}>
-      {task}
+      <div className={cn({ [styles.taskDone]: workerTask.isDone })}>{task}</div>
       <div className={styles.iconsWrapper}>
         <FontAwesomeIcon
           icon={faCheck}
-          className={styles.icon}
+          className={cn(styles.icon, {
+            [styles.taskDoneIcon]: workerTask.isDone,
+          })}
           onClick={() => dispatch(statusTask({ idWorker, idTask }))}
         />
         <FontAwesomeIcon

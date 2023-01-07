@@ -4,19 +4,27 @@ import { useDispatch } from "react-redux";
 import { hideModal } from "../../reducers/modalSlice";
 import { editWorker } from "../../reducers/workerSlice";
 
+import { Validate } from "../../Validate";
+
 export const ModalEditWorker = ({ data }) => {
   const dispatch = useDispatch();
   const { id, name, surname } = data;
   const [editName, setEditName] = useState(name);
   const [editSurname, setEditSurname] = useState(surname);
+  const [error, setError] = useState("");
   const handlerClick = () => {
     const editData = {
       id: id,
       name: editName,
       surname: editSurname,
     };
-    dispatch(editWorker(editData));
-    dispatch(hideModal());
+    const validate = Validate("editWorker", editData);
+    if (validate.status) {
+      dispatch(editWorker(editData));
+      dispatch(hideModal());
+    } else {
+      setError(validate.errTitle);
+    }
   };
   return (
     <>
@@ -39,6 +47,7 @@ export const ModalEditWorker = ({ data }) => {
           />
         </label>
       </div>
+      {error && <div>{error}</div>}
       <div className="modal__footer">
         <button onClick={handlerClick}>Изменить</button>
         <button onClick={() => dispatch(hideModal())}>Отмена</button>

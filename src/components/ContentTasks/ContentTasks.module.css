@@ -38,3 +38,9 @@
 .icon {
   cursor: pointer;
 }
+.taskDone {
+  color: red;
+}
+.taskDoneIcon {
+  color: green;
+}
