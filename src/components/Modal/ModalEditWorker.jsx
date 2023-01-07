@@ -24,6 +24,8 @@ export const ModalEditWorker = ({ data }) => {
       dispatch(hideModal());
     } else {
       setError(validate.errTitle);
+      setEditName(name);
+      setEditSurname(surname);
     }
   };
   return (

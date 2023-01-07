@@ -28,6 +28,7 @@ export const ModalAddTask = () => {
       dispatch(hideModal());
     } else {
       setError(validate.errTitle);
+      setTask("");
     }
   };
   return (

@@ -24,6 +24,8 @@ export const ModalAddWorker = () => {
       dispatch(hideModal());
     } else {
       setError(validate.errTitle);
+      setName("");
+      setSurname("");
     }
   };
   return (
