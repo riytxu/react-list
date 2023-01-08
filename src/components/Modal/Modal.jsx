@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
+import cn from "classnames";
+
 import { hideModal } from "../../reducers/modalSlice";
 
 import { ModalAddWorker } from "./ModalAddWorker";
@@ -26,10 +28,12 @@ export const Modal = () => {
       return null;
     }
   };
-  if (!statusModal) return null;
 
   return (
-    <div className={styles.modal} onMouseDown={() => dispatch(hideModal())}>
+    <div
+      className={cn(styles.modal, { [styles.active]: statusModal })}
+      onMouseDown={() => dispatch(hideModal())}
+    >
       <div
         className={styles.modal__content}
         onMouseDown={(e) => e.stopPropagation()}

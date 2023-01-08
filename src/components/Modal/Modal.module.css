@@ -8,10 +8,17 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 .modal__content {
   min-width: 500px;
   padding: 20px;
   background-color: var(--main-color);
   border-radius: var(--main-radius);
+}
+.active {
+  opacity: 1;
+  visibility: visible;
 }
