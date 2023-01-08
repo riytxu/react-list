@@ -2,7 +2,6 @@ import cn from "classnames";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useState } from "react";
 
 import { Button } from "../Button/Button";
 import { showModal } from "../../reducers/modalSlice";
@@ -10,7 +9,7 @@ import { showModal } from "../../reducers/modalSlice";
 import styles from "./Header.module.css";
 
 export const Header = () => {
-  const location = useLocation().pathname;
+  const location = useLocation();
   const dispatch = useDispatch();
   return (
     <header
@@ -19,7 +18,7 @@ export const Header = () => {
       <Link to="workers">
         <Button
           Size={"Large"}
-          Type={location === "/workers" ? "Disabled" : "Secondary"}
+          Type={location.pathname === "/workers" ? "Disabled" : "Secondary"}
         >
           Работники
         </Button>
@@ -27,7 +26,7 @@ export const Header = () => {
       <Link to="tasks">
         <Button
           Size={"Large"}
-          Type={location === "/tasks" ? "Disabled" : "Secondary"}
+          Type={location.pathname === "/tasks" ? "Disabled" : "Secondary"}
         >
           Задачи
         </Button>
