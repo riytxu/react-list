@@ -12,25 +12,25 @@ export const Header = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   return (
-    <header
-      className={cn(styles.header, styles.headerWrapper, styles.header_green)}
-    >
-      <Link to="workers">
-        <Button
-          Size={"Large"}
-          Type={location.pathname === "/workers" ? "Disabled" : "Secondary"}
-        >
-          Работники
-        </Button>
-      </Link>
-      <Link to="tasks">
-        <Button
-          Size={"Large"}
-          Type={location.pathname === "/tasks" ? "Disabled" : "Secondary"}
-        >
-          Задачи
-        </Button>
-      </Link>
+    <header className={cn(styles.header, styles.headerWrapper)}>
+      <div className={styles.headerLinks}>
+        <Link to="workers">
+          <Button
+            Size={"Large"}
+            Type={location.pathname === "/workers" ? "Disabled" : "Secondary"}
+          >
+            Работники
+          </Button>
+        </Link>
+        <Link to="tasks">
+          <Button
+            Size={"Large"}
+            Type={location.pathname === "/tasks" ? "Disabled" : "Secondary"}
+          >
+            Задачи
+          </Button>
+        </Link>
+      </div>
 
       <Routes>
         <Route
