@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "../Button/Button";
 import { hideModal } from "../../reducers/modalSlice";
@@ -9,10 +9,26 @@ import { Validate } from "../../Validate";
 
 export const ModalEditWorker = ({ data }) => {
   const dispatch = useDispatch();
+  const statusModal = useSelector((state) => state.modal.show);
   const { id, name, surname } = data;
   const [editName, setEditName] = useState(name);
   const [editSurname, setEditSurname] = useState(surname);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    setEditName(name);
+  }, [name]);
+  useEffect(() => {
+    setEditSurname(surname);
+  }, [surname]);
+  useEffect(() => {
+    if (!statusModal && error) {
+      setTimeout(() => {
+        setError("");
+      }, 500);
+    }
+  }, [statusModal, error]);
+
   const handlerClick = () => {
     const editData = {
       id: id,

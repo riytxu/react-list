@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { addTask } from "../../reducers/workerSlice";
 import { hideModal } from "../../reducers/modalSlice";
@@ -9,9 +9,20 @@ import { Validate } from "../../Validate";
 export const ModalAddTask = () => {
   const dispatch = useDispatch();
   const worker = useSelector((state) => state.worker.worker);
+  const statusModal = useSelector((state) => state.modal.show);
   const [task, setTask] = useState("");
   const [selectWorker, setSelectWorker] = useState(worker[0]?.id);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!statusModal) {
+      setTimeout(() => {
+        setError("");
+        setTask("");
+      }, 500);
+    }
+  }, [statusModal, worker]);
+
   const handlerClick = () => {
     const validate = Validate("addTask", task);
     if (validate.status) {

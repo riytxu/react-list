@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "../Button/Button";
 import { addWorker } from "../../reducers/workerSlice";
@@ -9,9 +9,21 @@ import { hideModal } from "../../reducers/modalSlice";
 
 export const ModalAddWorker = () => {
   const dispatch = useDispatch();
+  const statusModal = useSelector((state) => state.modal.show);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!statusModal) {
+      setTimeout(() => {
+        setName("");
+        setSurname("");
+        setError("");
+      }, 500);
+    }
+  }, [statusModal]);
+
   const handlerAddButton = () => {
     const fullname = {
       id: Date.now() + Math.random(),
