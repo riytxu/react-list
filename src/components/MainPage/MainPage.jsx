@@ -35,9 +35,10 @@ export const MainPage = () => {
         }}
       >
         <Routes location={displayLocation}>
-          <Route path="" element={<div>Lorem ipsum dolor sit amet.</div>} />
+          <Route path="/" element={<div>Lorem ipsum dolor sit amet.</div>} />
           <Route path="/workers" element={<ContentWorkers />} />
           <Route path="/tasks" element={<ContentTasks />} />
+          <Route path="*" element={<div>404</div>} />
         </Routes>
         <Modal />
       </div>
