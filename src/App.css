@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 :root {
   --main-color: #ffcf00;
   --extra-a-color: #ffcf00;
@@ -11,6 +13,10 @@
   box-sizing: border-box;
 }
 
-body {
-  font: normal 1rem Verdana, Arial, sans-serif;
+body,
+input,
+textarea,
+button {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
 }

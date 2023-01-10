@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-
+import { faPen, faXmark } from "@fortawesome/free-solid-svg-icons";
+import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 
 import { showModal } from "../../reducers/modalSlice";
@@ -29,7 +29,7 @@ const ContentWorkersItem = ({ id, name, surname }) => {
               })
             )
           }
-          className={styles.icon}
+          className={cn(styles.icon, styles.iconActive)}
           icon={faPen}
         />
         <FontAwesomeIcon
@@ -45,8 +45,8 @@ const ContentWorkersItem = ({ id, name, surname }) => {
               })
             )
           }
-          className={styles.icon}
-          icon={faTrashCan}
+          className={cn(styles.icon, styles.iconActive)}
+          icon={faXmark}
         />
       </div>
     </div>
