@@ -35,6 +35,7 @@ export const MainPage = () => {
         }}
       >
         <Routes location={displayLocation}>
+          <Route path="" element={<div>Lorem ipsum dolor sit amet.</div>} />
           <Route path="/workers" element={<ContentWorkers />} />
           <Route path="/tasks" element={<ContentTasks />} />
         </Routes>
