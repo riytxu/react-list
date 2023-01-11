@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
 import cn from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -30,7 +30,7 @@ const ContentWorkersItem = ({ id, name, surname }) => {
             )
           }
           className={cn(styles.icon, styles.iconActive)}
-          icon={faPen}
+          icon={faPenToSquare}
         />
         <FontAwesomeIcon
           onClick={() =>

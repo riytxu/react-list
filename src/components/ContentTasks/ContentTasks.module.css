@@ -25,22 +25,60 @@
 .taskItem {
   display: flex;
 }
-.taskItem::before {
-  content: "-";
-  margin-right: 10px;
-}
 .iconsWrapper {
   display: flex;
   gap: 20px;
-  font-size: 25px;
   margin-left: auto;
 }
 .icon {
   cursor: pointer;
+  font-size: 25px;
+  transition: all 300ms ease;
 }
-.taskDone {
-  color: red;
+.iconActive:hover {
+  transform: scale(1.1);
+}
+.task {
+  position: relative;
+}
+.task::before {
+  content: "";
+  height: 5px;
+  background-color: #18c418;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: out 1s forwards;
+}
+.task.taskDone::before {
+  animation: in 1s forwards;
 }
 .taskDoneIcon {
-  color: green;
+  color: #18c418;
+}
+
+@keyframes in {
+  from {
+    width: 0;
+    left: -10px;
+    right: 10px;
+  }
+  to {
+    width: calc(100% + 20px);
+    left: -10px;
+    right: 10px;
+  }
+}
+
+@keyframes out {
+  from {
+    width: calc(100% + 20px);
+    left: -10px;
+    right: 10px;
+  }
+  to {
+    width: 0;
+    left: -10px;
+    right: 10px;
+  }
 }

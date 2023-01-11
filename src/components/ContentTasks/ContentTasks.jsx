@@ -14,14 +14,16 @@ const ContentTasksItem = ({ idWorker, name, surname, tasks }) => {
       <div className="fullName">
         {name} {surname}
       </div>
-      <div className={styles.tasksWrapper}>
-        {tasks.map((item) => {
-          const { id, title } = item;
-          return (
-            <TaskItem key={id} idWorker={idWorker} idTask={id} task={title} />
-          );
-        })}
-      </div>
+      {!!tasks.length && (
+        <div className={styles.tasksWrapper}>
+          {tasks.map((item) => {
+            const { id, title } = item;
+            return (
+              <TaskItem key={id} idWorker={idWorker} idTask={id} task={title} />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
@@ -33,18 +35,22 @@ const TaskItem = ({ idWorker, idTask, task }) => {
   const dispatch = useDispatch();
   return (
     <div className={styles.taskItem}>
-      <div className={cn({ [styles.taskDone]: workerTask.isDone })}>{task}</div>
+      <div
+        className={cn(styles.task, { [styles.taskDone]: workerTask.isDone })}
+      >
+        {task}
+      </div>
       <div className={styles.iconsWrapper}>
         <FontAwesomeIcon
           icon={faCheck}
-          className={cn(styles.icon, {
+          className={cn(styles.icon, styles.iconActive, {
             [styles.taskDoneIcon]: workerTask.isDone,
           })}
           onClick={() => dispatch(statusTask({ idWorker, idTask }))}
         />
         <FontAwesomeIcon
           icon={faXmark}
-          className={styles.icon}
+          className={cn(styles.icon, styles.iconActive)}
           onClick={() => dispatch(delTask({ idWorker, idTask }))}
         />
       </div>
