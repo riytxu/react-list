@@ -19,11 +19,13 @@ export const Header = () => {
   useEffect(() => {
     if (location !== displayLocation) setTransistionStage(false);
   }, [location, displayLocation]);
-
   return (
     <header className={cn(styles.header, styles.headerWrapper)}>
       <div className={styles.headerLinks}>
-        <Link to="">
+        <Link
+          to=""
+          style={location.pathname === "/" ? { pointerEvents: "none" } : {}}
+        >
           <Button
             Size={"Large"}
             Type={location.pathname === "/" ? "Disabled" : "Secondary"}
@@ -31,7 +33,12 @@ export const Header = () => {
             Главная
           </Button>
         </Link>
-        <Link to="workers">
+        <Link
+          to="workers"
+          style={
+            location.pathname === "/workers" ? { pointerEvents: "none" } : {}
+          }
+        >
           <Button
             Size={"Large"}
             Type={location.pathname === "/workers" ? "Disabled" : "Secondary"}
@@ -39,7 +46,12 @@ export const Header = () => {
             Работники
           </Button>
         </Link>
-        <Link to="tasks">
+        <Link
+          to="tasks"
+          style={
+            location.pathname === "/tasks" ? { pointerEvents: "none" } : {}
+          }
+        >
           <Button
             Size={"Large"}
             Type={location.pathname === "/tasks" ? "Disabled" : "Secondary"}
