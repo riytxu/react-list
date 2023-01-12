@@ -1,0 +1,33 @@
+.errorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  color: var(--extra-a-color);
+  font-size: 18rem;
+  font-weight: 800;
+  letter-spacing: 1rem;
+  text-shadow: 0.05em 0.05em 0 rgba(0, 0, 0, 0.25);
+}
+.numWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+.ghost {
+  color: var(--extra-b-color);
+  display: inline-block;
+  filter: drop-shadow(0.05em 0.05em 0 rgba(0, 0, 0, 0.25));
+  animation: ghost 2s alternate infinite ease-in-out;
+}
+
+@keyframes ghost {
+  from {
+    transform: translatey(20px) scaley(0.95);
+  }
+
+  to {
+    transform: translatey(-20px);
+  }
+}

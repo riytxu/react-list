@@ -5,6 +5,7 @@ import cn from "classnames";
 
 import { Header } from "../Header/Header";
 import { Modal } from "../Modal/Modal";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { ContentWorkers } from "../ContentWorkers/ContentWorkers";
 import { ContentTasks } from "../ContentTasks/ContentTasks";
 
@@ -38,7 +39,7 @@ export const MainPage = () => {
           <Route path="/" element={<div>Lorem ipsum dolor sit amet.</div>} />
           <Route path="/workers" element={<ContentWorkers />} />
           <Route path="/tasks" element={<ContentTasks />} />
-          <Route path="*" element={<div>404</div>} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Modal />
       </div>
