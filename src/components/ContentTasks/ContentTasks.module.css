@@ -44,7 +44,7 @@
 .task::before {
   content: "";
   height: 5px;
-  background-color: #18c418;
+  background-color: #159415;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -54,7 +54,7 @@
   animation: in 1s forwards;
 }
 .taskDoneIcon {
-  color: #18c418;
+  color: #159415;
 }
 
 @keyframes in {
