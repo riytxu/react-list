@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const ButtonComponent = styled.button`
   font-size: ${({ Size }) =>
-    (Size === "Small" && "15px") || (Size === "Large" && "25px") || "20px"};
+    (Size === "Small" && "20px") || (Size === "Large" && "25px") || "20px"};
   font-weight: ${({ Size }) =>
-    (Size === "Small" && 600) || (Size === "Large" && 700) || 600};
+    (Size === "Small" && 500) || (Size === "Large" && 700) || 600};
   color: ${({ Type }) =>
     (Type === "Secondary" && "#000") ||
     (Type === "Danger" && "#fff") ||

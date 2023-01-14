@@ -7,6 +7,8 @@ import { editWorker } from "../../reducers/workerSlice";
 
 import { Validate } from "../../Validate";
 
+import styles from "./Modal.module.css";
+
 export const ModalEditWorker = ({ data }) => {
   const dispatch = useDispatch();
   const statusModal = useSelector((state) => state.modal.show);
@@ -47,27 +49,25 @@ export const ModalEditWorker = ({ data }) => {
   };
   return (
     <>
-      <div className="modal__head">Изменение данных работника</div>
-      <div className="modal__body">
-        <label>
-          Имя
-          <input
-            type="text"
-            value={editName}
-            onChange={(e) => setEditName(e.target.value)}
-          />
-        </label>
-        <label>
-          Фамилия
-          <input
-            type="text"
-            value={editSurname}
-            onChange={(e) => setEditSurname(e.target.value)}
-          />
-        </label>
+      <div className={styles.modal__head}>Изменение данных работника</div>
+      <div className={styles.modal__body}>
+        <input
+          className={styles.modal__body_input}
+          type="text"
+          placeholder="Имя"
+          value={editName}
+          onChange={(e) => setEditName(e.target.value)}
+        />
+        <input
+          className={styles.modal__body_input}
+          type="text"
+          placeholder="Фамилия"
+          value={editSurname}
+          onChange={(e) => setEditSurname(e.target.value)}
+        />
       </div>
-      {error && <div>{error}</div>}
-      <div className="modal__footer">
+      {error && <div className={styles.modal__error}>{error}</div>}
+      <div className={styles.modal__footer}>
         <Button Size={"Small"} Type={"Success"} onClick={handlerClick}>
           Изменить
         </Button>

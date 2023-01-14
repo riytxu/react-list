@@ -6,6 +6,8 @@ import { hideModal } from "../../reducers/modalSlice";
 import { Button } from "../Button/Button";
 import { Validate } from "../../Validate";
 
+import styles from "./Modal.module.css";
+
 export const ModalAddTask = () => {
   const dispatch = useDispatch();
   const worker = useSelector((state) => state.worker.worker);
@@ -44,35 +46,32 @@ export const ModalAddTask = () => {
   };
   return (
     <>
-      <div className="modal__head">Добавление новой задачи</div>
-      <div className="modal__body">
-        <label>
-          Задача
-          <input
-            type="text"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-          />
-        </label>
-        <label>
-          Ответственный
-          <select
-            value={selectWorker}
-            onChange={(e) => setSelectWorker(e.target.value)}
-          >
-            {worker.map((item) => {
-              const { id, name, surname } = item;
-              return (
-                <option key={id} value={id}>
-                  {name} {surname}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+      <div className={styles.modal__head}>Добавление новой задачи</div>
+      <div className={styles.modal__body}>
+        <input
+          className={styles.modal__body_input}
+          type="text"
+          placeholder="Задача"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+        />
+        <select
+          className={styles.modal__body_input}
+          value={selectWorker}
+          onChange={(e) => setSelectWorker(e.target.value)}
+        >
+          {worker.map((item) => {
+            const { id, name, surname } = item;
+            return (
+              <option key={id} value={id}>
+                {name} {surname}
+              </option>
+            );
+          })}
+        </select>
       </div>
-      {error && <div>{error}</div>}
-      <div className="modal__footer">
+      {error && <div className={styles.modal__error}>{error}</div>}
+      <div className={styles.modal__footer}>
         <Button Size={"Small"} Type={"Success"} onClick={handlerClick}>
           Добавить
         </Button>

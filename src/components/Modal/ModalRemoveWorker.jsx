@@ -5,6 +5,8 @@ import { hideModal } from "../../reducers/modalSlice";
 
 import { deleteWorker } from "../../reducers/workerSlice";
 
+import styles from "./Modal.module.css";
+
 export const ModalRemoveWorker = ({ data }) => {
   const { id, name, surname } = data;
   const dispatch = useDispatch();
@@ -14,11 +16,11 @@ export const ModalRemoveWorker = ({ data }) => {
   };
   return (
     <>
-      <div className="modal__head">Вы уверены что хотите удалить?</div>
-      <div className="modal__body">
+      <div className={styles.modal__head}>Вы уверены что хотите удалить?</div>
+      <div className={styles.modal__body}>
         {name} {surname}
       </div>
-      <div className="modal__footer">
+      <div className={styles.modal__footer}>
         <Button Size={"Small"} Type={"Success"} onClick={handlerClick}>
           Удалить
         </Button>
