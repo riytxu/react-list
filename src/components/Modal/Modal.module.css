@@ -20,6 +20,8 @@
   padding: 20px;
   background-color: var(--main-color);
   border-radius: var(--main-radius);
+  width: 90%;
+  max-width: 700px;
 }
 .active {
   opacity: 1;
