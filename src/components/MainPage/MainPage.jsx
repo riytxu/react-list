@@ -8,6 +8,7 @@ import { Modal } from "../Modal/Modal";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { ContentWorkers } from "../ContentWorkers/ContentWorkers";
 import { ContentTasks } from "../ContentTasks/ContentTasks";
+import { Description } from "../Description/Description";
 
 import styles from "./MainPage.module.css";
 
@@ -36,7 +37,7 @@ export const MainPage = () => {
         }}
       >
         <Routes location={displayLocation}>
-          <Route path="/" element={<div>Lorem ipsum dolor sit amet.</div>} />
+          <Route path="/" element={<Description />} />
           <Route path="/workers" element={<ContentWorkers />} />
           <Route path="/tasks" element={<ContentTasks />} />
           <Route path="*" element={<ErrorPage />} />

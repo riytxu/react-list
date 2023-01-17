@@ -1,0 +1,28 @@
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  background-color: var(--main-color);
+  border-radius: var(--main-radius);
+  padding: 20px;
+  text-align: center;
+  line-height: 2rem;
+}
+.description__title {
+  font-weight: 700;
+}
+.description__body > span {
+  font-weight: 600;
+}
+.iconsWrapper {
+  height: 500px;
+  width: 500px;
+}
+.iconsWrapper > svg {
+  filter: drop-shadow(5px 5px 0 rgba(0, 0, 0, 0.5));
+}
+.circle {
+  fill: #e2a600;
+}
