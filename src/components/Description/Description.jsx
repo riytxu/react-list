@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import styled from "styled-components";
 
 import styles from "./Description.module.css";
@@ -41,8 +39,7 @@ export const Description = () => {
       <div className={styles.description__title}>Тестовый проект SPA React</div>
       <div className={styles.description__body}>
         Данный проект является <span>песочницей</span> для проверки технологий,
-        методов работы и демонстрации результатов. Используемый стек: React,
-        Readux toolkit, Classnames, Font Awesome, Styled Components, Docker
+        методов работы и демонстрации результатов.
       </div>
       <div className={styles.iconsWrapper}>
         <svg viewBox="0 0 200 200">
