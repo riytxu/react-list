@@ -8,38 +8,34 @@ const randomNum = (min, max) => {
   return Math.random() * (max - min + 1) + min;
 };
 
-export const Description = () => {
-  const [rotate, setRotate] = useState(0);
-
-  const Path = styled.path`
-    offset-path: path(
-      "M 100, 100 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0"
-    );
-    offset-rotate: auto;
-    animation: move linear infinite;
-    @keyframes move {
-      100% {
-        offset-distance: 100%;
-        /* offset-rotate: ${rotate}; */
-      }
+const Path = styled.path`
+  offset-path: path(
+    "M 100, 100 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0"
+  );
+  animation: move linear infinite;
+  @keyframes move {
+    100% {
+      offset-distance: 100%;
     }
-  `;
+  }
+`;
 
-  const PathReact = styled(Path)`
-    fill: #00d8ff;
-    animation-duration: ${randomNum(5, 10) + "s"};
-  `;
+const PathReact = styled(Path)`
+  fill: #00d8ff;
+  animation-duration: ${randomNum(5, 10) + "s"};
+`;
 
-  const PathRedux = styled(Path)`
-    fill: #764abc;
-    animation-duration: ${randomNum(5, 10) + "s"};
-  `;
+const PathRedux = styled(Path)`
+  fill: #764abc;
+  animation-duration: ${randomNum(5, 10) + "s"};
+`;
 
-  const PathDocker = styled(Path)`
-    fill: #0091e2;
-    animation-duration: ${randomNum(5, 10) + "s"};
-  `;
+const PathDocker = styled(Path)`
+  fill: #0091e2;
+  animation-duration: ${randomNum(5, 10) + "s"};
+`;
 
+export const Description = () => {
   return (
     <div className={styles.description}>
       <div className={styles.description__title}>Тестовый проект SPA React</div>
