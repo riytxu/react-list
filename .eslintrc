@@ -4,7 +4,11 @@
     "no-console": "warn",
     "quotes": ["warn", "double"],
     "prefer-const": "warn",
-    "indent": ["warn", 2],
+    "indent": [
+      "warn",
+      2,
+      { "SwitchCase": 1, "ignoredNodes": ["ConditionalExpression"] }
+    ],
     "import/order": [
       "warn",
       {
