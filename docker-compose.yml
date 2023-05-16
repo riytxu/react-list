@@ -1,7 +1,13 @@
 version: "3.9"
+
 services:
-  web:
-    build: .
-    container_name: frontend
+  react:
+    container_name: web
+    build:
+      # context: git@github.com:riytxu/react-list.git#main
+      context: .
+      # ssh: ["default"]
+    command: "serve -s build -l 80"
+    restart: "always"
     ports:
       - "1337:80"
