@@ -61,7 +61,7 @@ export const Header = () => {
         </Link>
       </div>
       <div
-        className={cn({
+        className={cn(styles.activeButton, {
           [styles.fadeIn]: transitionStage,
           [styles.fadeOut]: !transitionStage,
         })}

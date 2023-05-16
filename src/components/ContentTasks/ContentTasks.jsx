@@ -11,7 +11,7 @@ import styles from "./ContentTasks.module.css";
 const ContentTasksItem = ({ idWorker, name, surname, tasks }) => {
   return (
     <div className={styles.item}>
-      <div className="fullName">
+      <div className={styles.fullName}>
         {name} {surname}
       </div>
       {!!tasks.length && (

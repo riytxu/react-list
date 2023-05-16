@@ -1,11 +1,11 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
   width: 100%;
   background-color: var(--main-color);
   border-radius: var(--main-radius);
-  padding: 20px;
+  padding: 1rem;
 }
 .item {
   display: flex;
@@ -13,16 +13,16 @@
   justify-content: space-between;
   border-radius: var(--main-radius);
   background-color: var(--extra-b-color);
-  padding: 20px;
+  padding: 1.5rem;
 }
 .fullName {
-  display: flex;
-  gap: 5px;
+  font-size: 1.7rem;
+  font-weight: 600;
 }
 .iconsWrapper {
   display: flex;
-  gap: 25px;
-  font-size: 25px;
+  gap: 2rem;
+  font-size: 2rem;
 }
 .icon {
   cursor: pointer;

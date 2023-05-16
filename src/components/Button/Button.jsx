@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ButtonComponent = styled.button`
   font-size: ${({ Size }) =>
-    (Size === "Small" && "20px") || (Size === "Large" && "25px") || "20px"};
+    (Size === "Small" && "1.3rem") || (Size === "Large" && "1.5rem") || "1.3"};
   font-weight: ${({ Size }) =>
     (Size === "Small" && 500) || (Size === "Large" && 700) || 600};
   color: ${({ Type }) =>
@@ -17,8 +17,8 @@ const ButtonComponent = styled.button`
     "#ffffff"};
   cursor: ${({ Type }) => (Type === "Disabled" && "default") || "pointer"};
   transition: all 200ms;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
   border-style: none;
   opacity: ${({ Type }) => (Type === "Disabled" && 0.8) || 1};
   &:hover {
@@ -36,6 +36,7 @@ const ButtonComponent = styled.button`
     box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
     transform: translateY(0);
   }
+  -webkit-tap-highlight-color: transparent;
 `;
 
 export const Button = (props) => {

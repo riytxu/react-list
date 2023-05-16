@@ -1,5 +1,5 @@
 .header {
-  padding: 30px;
+  padding: 2rem;
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: var(--main-radius);
@@ -7,11 +7,19 @@
 }
 .headerWrapper {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   justify-content: space-between;
 }
 .headerLinks {
   display: flex;
-  gap: 30px;
+  gap: 2rem;
+}
+.headerLinks > * {
+  -webkit-tap-highlight-color: transparent;
+}
+.activeButton {
+  margin-left: auto;
 }
 .fadeIn {
   animation: 0.5s fadeIn none;
@@ -19,6 +27,15 @@
 
 .fadeOut {
   animation: 0.5s fadeOut forwards;
+}
+
+@media all and (max-width: 425px) {
+  .headerWrapper {
+    flex-direction: column;
+  }
+  .headerLinks {
+    justify-content: space-between;
+  }
 }
 
 @keyframes fadeIn {

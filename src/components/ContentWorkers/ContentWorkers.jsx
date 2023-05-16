@@ -12,8 +12,7 @@ const ContentWorkersItem = ({ id, name, surname }) => {
   return (
     <div className={styles.item}>
       <div className={styles.fullName}>
-        <span>{name}</span>
-        <span>{surname}</span>
+        {name} {surname}
       </div>
       <div className={styles.iconsWrapper}>
         <FontAwesomeIcon

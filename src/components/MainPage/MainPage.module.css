@@ -5,7 +5,7 @@
   margin: 0 auto;
 }
 .contentWrapper {
-  margin-top: 50px;
+  margin-top: 2rem;
 }
 .fadeIn {
   animation: 0.5s fadeIn none;

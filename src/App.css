@@ -7,17 +7,45 @@
   --main-radius: 10px;
 }
 
-* {
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body,
-input,
-textarea,
-button,
-select {
+html {
   font-family: "Roboto", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
+}
+
+@media all and (max-width: 1440px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media all and (max-width: 425px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  html {
+    font-size: 7px;
+  }
 }
